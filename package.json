@@ -1,0 +1,9 @@
+{
+  "name": "sms-sender",
+  "version": "1.0.0",
+  "description": "Sends SMS to multiple recipients using Twilio",
+  "main": "src/index.js",
+  "author": "Jorge Barnaby <jorge.barnaby@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
