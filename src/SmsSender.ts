@@ -48,12 +48,17 @@ export class SmsSender {
             throw new Error('No recipients to send SMS');
         }
 
-        const sendSmsToNumber = (phoneNumber: string) => {
-            this.logger.info(`Trying to send SMS to number '${phoneNumber}'`);
+        const sendSmsToNumber = (phoneNumber?: string) => {
+            const to = phoneNumber.trim();
+            if (!to) {
+                this.logger.error('Not a valid phone number to send SMS');
+                return;
+            }
+            this.logger.info(`Trying to send SMS to number ${phoneNumber}`);
             return this.client.messages
                 .create({
                     body,
-                    to: phoneNumber.trim(),
+                    to,
                     from: this.fromNumber
                 })
                 .then((message) => {
@@ -64,7 +69,7 @@ export class SmsSender {
                         );
                     } else {
                         this.logger.info(
-                            `Sent SMS to number '${phoneNumber}' successful (status ${status})`
+                            `Sent SMS to number ${phoneNumber} successful (status ${status})`
                         );
                     }
                     return message;

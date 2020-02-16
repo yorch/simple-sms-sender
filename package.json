@@ -9,13 +9,17 @@
     "build": "yon lint && yon build-ts",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "clean": "rimraf ./dist",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-test": "yon test --watchAll"
   },
   "private": false,
   "dependencies": {
     "twilio": "3.39.4"
   },
   "devDependencies": {
+    "@types/jest": "25.1.2",
     "@typescript-eslint/eslint-plugin": "2.19.2",
     "@typescript-eslint/parser": "2.19.2",
     "eslint": "6.8.0",
@@ -25,6 +29,8 @@
     "jest": "25.1.0",
     "lint-staged": "10.0.7",
     "prettier": "1.19.1",
+    "rimraf": "3.0.2",
+    "ts-jest": "25.2.0",
     "ts-node": "8.6.2",
     "typescript": "3.7.5",
     "yarn-or-npm": "3.0.1"
