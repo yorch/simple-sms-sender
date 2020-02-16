@@ -1,8 +1,8 @@
 {
-  "name": "sms-sender",
-  "version": "1.0.0",
+  "name": "simple-sms-sender",
+  "version": "0.0.0",
   "description": "Simple SMS sender to multiple recipients using Twilio",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "author": "Jorge Barnaby <jorge.barnaby@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -11,10 +11,14 @@
     "watch-ts": "tsc -w",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "clean": "rimraf ./dist",
-    "test": "jest --forceExit --coverage --verbose",
-    "watch-test": "yon test --watchAll"
+    "test": "yon lint && jest --forceExit --coverage --verbose",
+    "watch-test": "yon test --watchAll",
+    "prepublish": "yon test && yon build"
   },
   "private": false,
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "twilio": "3.39.4"
   },
