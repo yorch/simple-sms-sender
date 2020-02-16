@@ -1,7 +1,7 @@
 {
   "name": "sms-sender",
   "version": "1.0.0",
-  "description": "Sends SMS to multiple recipients using Twilio",
+  "description": "Simple SMS sender to multiple recipients using Twilio",
   "main": "src/index.js",
   "author": "Jorge Barnaby <jorge.barnaby@gmail.com>",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "prettier": "1.19.1",
     "ts-node": "8.6.2",
     "typescript": "3.7.5",
-    "yon": "0.2.1"
+    "yarn-or-npm": "3.0.1"
   },
   "husky": {
     "hooks": {
