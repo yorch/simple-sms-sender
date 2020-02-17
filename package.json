@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yon lint && yon build-ts",
-    "build-ts": "tsc",
+    "build-ts": "tsc --declaration",
     "watch-ts": "tsc -w",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "clean": "rimraf ./dist",
