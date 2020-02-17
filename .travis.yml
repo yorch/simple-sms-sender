@@ -1,3 +1,11 @@
 language: node_js
 node_js:
   - 10
+
+deploy:
+  provider: npm
+  edge: true
+  on:
+    branch: master
+    tags: true
+    skip_cleanup: true
