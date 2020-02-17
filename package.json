@@ -11,7 +11,7 @@
     "watch-ts": "tsc -w",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "clean": "rimraf ./dist",
-    "test": "yon lint && jest --forceExit --coverage --verbose",
+    "test": "yon lint && jest --forceExit --detectOpenHandles --coverage --verbose",
     "watch-test": "yon test --watchAll",
     "prepublish": "yon test && yon build"
   },
