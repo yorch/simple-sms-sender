@@ -16,6 +16,7 @@
     "prepublish": "yon test && yon build"
   },
   "private": false,
+  "repository": "yorch/simple-sms-sender",
   "files": [
     "dist"
   ],
