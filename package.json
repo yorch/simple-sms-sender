@@ -21,7 +21,7 @@
     "dist"
   ],
   "dependencies": {
-    "twilio": "3.48.0"
+    "twilio": "3.48.1"
   },
   "devDependencies": {
     "@types/jest": "26.0.5",
