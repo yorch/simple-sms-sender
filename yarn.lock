@@ -4361,10 +4361,10 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twilio@3.57.0:
-  version "3.57.0"
-  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.57.0.tgz#626d212fb86c5d73abf23e7d39cb83f25d477a49"
-  integrity sha512-gt1NtEM647c/+KGcPiBEY2YCCrvm7nKXfd2bOT6PNYUAbBF5n0s3Ed0lYQW5BngpJEjeZROMZjfp9ikwehS/pg==
+twilio@3.59.0:
+  version "3.59.0"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.59.0.tgz#74f9427bfaeee6973c08a74126da4f97f4d0e471"
+  integrity sha512-2pRNZXBYm+8e2TrljE3xkUs8YSamX9RGhO9TLN+OjbxYNOXybviM+SQ+FZyHVJdoYlbu68/iF2fUkg6DLCQGeA==
   dependencies:
     axios "^0.21.1"
     dayjs "^1.8.29"
@@ -4375,7 +4375,7 @@ twilio@3.57.0:
     qs "^6.9.4"
     rootpath "^0.1.2"
     scmp "^2.1.0"
-    url-parse "^1.4.7"
+    url-parse "^1.5.0"
     xmlbuilder "^13.0.2"
 
 type-check@^0.4.0, type-check@~0.4.0:
@@ -4454,10 +4454,10 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
-url-parse@^1.4.7:
-  version "1.4.7"
-  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.4.7.tgz#a8a83535e8c00a316e403a5db4ac1b9b853ae278"
-  integrity sha512-d3uaVyzDB9tQoSXFvuSUNFibTd9zxd2bkVrDRvF5TmvWWQwqE4lgYJ5m+x1DbecWkw+LK4RNl2CU1hHuOKPVlg==
+url-parse@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.1.tgz#d5fa9890af8a5e1f274a2c98376510f6425f6e3b"
+  integrity sha512-HOfCOUJt7iSYzEx/UqgtwKRMC6EU91NFhsCHMv9oM03VJcVo2Qrp8T8kI9D7amFf1cu+/3CEhgb3rF9zL7k85Q==
   dependencies:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
