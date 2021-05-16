@@ -1,6 +1,10 @@
-# Simple SMS Sender [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=yorch/simple-sms-sender)](https://dependabot.com)
+# Simple SMS Sender
 
 Library to send SMS messages to multiple recipients using Twilio API.
+
+[![install size](https://packagephobia.com/badge?p=simple-sms-sender)](https://packagephobia.com/result?p=simple-sms-sender)
+[![Typescript](https://flat.badgen.net/badge/icon/included?icon=typescript&label)](https://unpkg.com/browse/simple-sms-sender/dist/index.d.ts)
+[![Known Vulnerabilities](https://snyk.io/test/github/yorch/simple-sms-sender/badge.svg)](https://snyk.io/test/github/yorch/simple-sms-sender)
 
 ## Installation
 

@@ -5,6 +5,14 @@
   "main": "dist/index.js",
   "author": "Jorge Barnaby <jorge.barnaby@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/yorch/simple-sms-sender#readme",
+  "bugs": {
+    "url": "https://github.com/yorch/simple-sms-sender/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yorch/simple-sms-sender"
+  },
   "scripts": {
     "build": "yon lint && yon build-ts",
     "build-ts": "tsc --declaration",
@@ -17,10 +25,6 @@
     "prepare": "husky install"
   },
   "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yorch/simple-sms-sender"
-  },
   "files": [
     "dist"
   ],
@@ -50,5 +54,16 @@
     "*.{js,ts,tsx}": [
       "eslint --fix"
     ]
-  }
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "sms",
+    "twilio"
+  ]
 }
