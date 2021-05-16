@@ -13,7 +13,8 @@
     "clean": "rimraf ./dist",
     "test": "yon lint && jest --forceExit --detectOpenHandles --coverage --verbose",
     "watch-test": "yon test --watchAll",
-    "prepublish": "yon test && yon build"
+    "prepublish": "yon test && yon build",
+    "prepare": "husky install"
   },
   "private": false,
   "repository": {
@@ -45,15 +46,9 @@
     "typescript": "4.2.4",
     "yarn-or-npm": "3.0.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   }
 }
