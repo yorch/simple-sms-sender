@@ -2,6 +2,18 @@
 
 Library to send SMS messages to multiple recipients using Twilio API.
 
+## Installation
+
+```sh
+yarn add simple-sms-sender
+```
+
+or
+
+```sh
+npm install --save simple-sms-sender
+```
+
 ## Usage
 
 ```js
@@ -26,17 +38,15 @@ sender.sendSms({
 
 ```js
 import { SmsSender } from 'simple-sms-sender';
+import pino from 'pino';
+
+const logger = pino();
 
 const config = {
   accountSid: '{Your Twilio Account SID}',
   fromNumber: '{Phone number to send }',
   secret: '{Your Twilio Secret}',
   sid: '{Your Twilio SID}'
-};
-
-const logger = {
-  info: (...args) => console.log(...args),
-  error: (...args) => console.error(...args)
 };
 
 const sendSms = ({ body, recipients }) => {
