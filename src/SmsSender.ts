@@ -23,7 +23,10 @@ export class SmsSender {
         secret: string;
     }) {
         this.accountSid = accountSid;
-        this.logger = logger;
+        this.logger = logger || {
+            error: console.error.bind(console),
+            info: console.log.bind(console)
+        };
         this.fromNumber = fromNumber;
         this.sid = sid;
         this.secret = secret;

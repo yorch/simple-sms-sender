@@ -2,12 +2,34 @@
 
 Library to send SMS messages to multiple recipients using Twilio API.
 
+## Usage
+
+```js
+import { SmsSender } from 'simple-sms-sender';
+
+const sender = new SmsSender({
+  accountId: '', // string
+  fromNumber: '', // string
+  logger, // Logger instance, optional, defaults to console.log and console.error
+  secret: '', // string
+  sid: '', // string
+});
+
+// Returns a promise
+sender.sendSms({
+  body: '', // string
+  recipients: [] // array of strings
+})
+```
+
 ## Example
 
 ```js
+import { SmsSender } from 'simple-sms-sender';
+
 const config = {
   accountSid: '{Your Twilio Account SID}',
-  from: '{Phone number to send }',
+  fromNumber: '{Phone number to send }',
   secret: '{Your Twilio Secret}',
   sid: '{Your Twilio SID}'
 };
@@ -19,7 +41,7 @@ const logger = {
 
 const sendSms = ({ body, recipients }) => {
   const {
-      accountSid, from, secret, sid,
+      accountSid, fromNumber, secret, sid,
   } = config;
 
   const smsSender = new SmsSender({
