@@ -33,7 +33,7 @@ export class SmsSender {
         });
     }
 
-    public sendSms({
+    public async sendSms({
         body,
         recipients
     }: {

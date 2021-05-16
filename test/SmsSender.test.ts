@@ -46,4 +46,30 @@ describe('SmsSender', () => {
             'Sent SMS to number +19991112223333 successful (status yey)'
         );
     });
+
+    test('should throw if no body is provided', async () => {
+        const smsSender = new SmsSender(commonConfig);
+        await expect(
+            smsSender.sendSms({
+                body: undefined,
+                recipients: ['+19991112223333']
+            })
+        ).rejects.toThrowError('No body to send SMS');
+    });
+
+    test('should throw if no recipients are provided', async () => {
+        const smsSender = new SmsSender(commonConfig);
+        await expect(
+            smsSender.sendSms({
+                body: 'Test',
+                recipients: undefined
+            })
+        ).rejects.toThrowError('No recipients to send SMS');
+        await expect(
+            smsSender.sendSms({
+                body: 'Test',
+                recipients: []
+            })
+        ).rejects.toThrowError('No recipients to send SMS');
+    });
 });
