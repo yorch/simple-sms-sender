@@ -29,7 +29,7 @@
     "dist"
   ],
   "dependencies": {
-    "twilio": "3.63.0"
+    "twilio": "3.64.0"
   },
   "devDependencies": {
     "@types/express": "4.17.12",
