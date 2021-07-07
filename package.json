@@ -32,7 +32,7 @@
     "twilio": "3.64.0"
   },
   "devDependencies": {
-    "@types/express": "4.17.12",
+    "@types/express": "4.17.13",
     "@types/jest": "26.0.23",
     "@types/qs": "6.9.6",
     "@typescript-eslint/eslint-plugin": "4.28.1",
