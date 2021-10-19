@@ -1012,7 +1012,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axios@^0.21.1:
+axios@^0.21.4:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
@@ -4556,12 +4556,12 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
-twilio@3.68.0:
-  version "3.68.0"
-  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.68.0.tgz#73c78ce1d3dba166249c1f893b81e0af406feb13"
-  integrity sha512-xVFx/TbibpQtYwkDzuqPS8fsBGg8ZZ2iUtGU68dC9Dv1cngmxePcvxmyFxgPEd6wpnexJHHrCyiSr+LBaBEcDg==
+twilio@3.70.0:
+  version "3.70.0"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.70.0.tgz#9e6a96f0c46e8256d74bce918baeb7e678c4c1aa"
+  integrity sha512-GhohvQfP3aHEwiCb6MWqDJ/KeSyFmFwCQtoSuHEwevE7GCxCq6spK36HlCNg3UyTTZNvfdIhN9Sf1wDWeDIbOg==
   dependencies:
-    axios "^0.21.1"
+    axios "^0.21.4"
     dayjs "^1.8.29"
     https-proxy-agent "^5.0.0"
     jsonwebtoken "^8.5.1"
