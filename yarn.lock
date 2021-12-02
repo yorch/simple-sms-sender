@@ -3498,10 +3498,10 @@ tsutils@^3.21.0:
   dependencies:
     tslib "^1.8.1"
 
-twilio@3.71.1:
-  version "3.71.1"
-  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.71.1.tgz#15bbb4b51c75d91cc07a8149378c4af330e543cc"
-  integrity sha512-P/KFvm33UW15EnpHJKgdTxUa1u6MlR/u+sCVnL4ie2TDRv6t7kX+ieIGQMpH7bP/z7FXkTjEt0lz4M+XJ/XWOg==
+twilio@3.71.3:
+  version "3.71.3"
+  resolved "https://registry.yarnpkg.com/twilio/-/twilio-3.71.3.tgz#a446d2b49f8c1ed60b0dd830c919921358c17203"
+  integrity sha512-m9eda9fvkHxMMDHRtXj8WKI0ViP4EG4xS5au5ay3ScfModhBZ1ZtyfWZ0AfWI++A7a1T1j3ZVNIZ+AMLwxSffw==
   dependencies:
     axios "^0.21.4"
     dayjs "^1.8.29"
