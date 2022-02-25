@@ -29,16 +29,16 @@
     "dist"
   ],
   "dependencies": {
-    "twilio": "3.73.1"
+    "twilio": "3.75.0"
   },
   "devDependencies": {
     "@types/express": "4.17.13",
-    "@types/jest": "27.4.0",
+    "@types/jest": "27.4.1",
     "@types/qs": "6.9.7",
     "@typescript-eslint/eslint-plugin": "5.11.0",
-    "@typescript-eslint/parser": "5.11.0",
+    "@typescript-eslint/parser": "5.12.1",
     "eslint": "8.8.0",
-    "eslint-config-prettier": "8.3.0",
+    "eslint-config-prettier": "8.4.0",
     "eslint-plugin-prettier": "4.0.0",
     "husky": "7.0.4",
     "jest": "27.5.0",
