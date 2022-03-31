@@ -1,6 +1,6 @@
 {
   "name": "simple-sms-sender",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple SMS sender to multiple recipients using Twilio",
   "main": "dist/index.js",
   "author": "Jorge Barnaby <jorge.barnaby@gmail.com>",
