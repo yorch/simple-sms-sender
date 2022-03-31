@@ -24,18 +24,23 @@ npm install --save simple-sms-sender
 import { SmsSender } from 'simple-sms-sender';
 
 const sender = new SmsSender({
-  accountId: '', // string
-  fromNumber: '', // string
-  logger, // Logger instance, optional, defaults to console.log and console.error
-  secret: '', // string
-  sid: '', // string
+    accountId: '', // string
+    fromNumber: '', // string
+    logger, // Logger instance, optional, defaults to console.log and console.error
+    secret: '', // string
+    sid: '' // string
 });
 
 // Returns a promise
 sender.sendSms({
-  body: '', // string
-  recipients: [] // array of strings
-})
+    body: '', // string
+    recipients: [] // array of strings
+});
+
+sender.sendMultipleSms([
+    { body: '', recipients: [] },
+    { body: '', recipients: [] }
+]);
 ```
 
 ## Example
@@ -47,39 +52,34 @@ import pino from 'pino';
 const logger = pino();
 
 const config = {
-  accountSid: '{Your Twilio Account SID}',
-  fromNumber: '{Phone number to send }',
-  secret: '{Your Twilio Secret}',
-  sid: '{Your Twilio SID}'
+    accountSid: '{Your Twilio Account SID}',
+    fromNumber: '{Phone number to send }',
+    secret: '{Your Twilio Secret}',
+    sid: '{Your Twilio SID}'
 };
 
-const sendSms = ({ body, recipients }) => {
-  const {
-      accountSid, fromNumber, secret, sid,
-  } = config;
+const createSender = () => {
+    const { accountSid, fromNumber, secret, sid } = config;
 
-  const smsSender = new SmsSender({
-    accountSid,
-    fromNumber,
-    logger,
-    secret,
-    sid,
-  });
-
-  return smsSender.sendSms({
-      body,
-      recipients,
-  });
+    return new SmsSender({
+        accountSid,
+        fromNumber,
+        logger,
+        secret,
+        sid
+    });
 };
 
-Promise.all([
-  sendSms({
-    body: 'Some message',
-    recipients: ['+19999999999', '+18888888888']
-  }),
-  sendSms({
-    body: 'Some other message message',
-    recipients: ['+19999999999']
-  })
+const smsSender = createSender();
+
+smsSender.sendMultipleSms([
+    {
+        body: 'Some message',
+        recipients: ['+19999999999', '+18888888888']
+    },
+    {
+        body: 'Some other message message',
+        recipients: ['+19999999999']
+    }
 ]);
 ```
