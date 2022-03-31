@@ -1,11 +1,12 @@
 import twilio from 'twilio';
 import Twilio from 'twilio/lib/rest/Twilio';
+import { GenericLogger, Message } from './types';
 
 export class SmsSender {
     private accountSid: string;
     private client: Twilio;
     private fromNumber: string;
-    private logger: any; // TODO: Give appropriate type
+    private logger: GenericLogger;
     private sid: string;
     private secret: string;
 
@@ -18,7 +19,7 @@ export class SmsSender {
     }: {
         accountSid: string;
         fromNumber: string;
-        logger: any;
+        logger: GenericLogger;
         sid: string;
         secret: string;
     }) {
@@ -36,13 +37,7 @@ export class SmsSender {
         });
     }
 
-    public async sendSms({
-        body,
-        recipients
-    }: {
-        body: string;
-        recipients: string[];
-    }) {
+    public async sendSms({ body, recipients }: Message) {
         if (!body || body.length === 0) {
             throw new Error('No body to send SMS');
         }
@@ -51,40 +46,48 @@ export class SmsSender {
             throw new Error('No recipients to send SMS');
         }
 
-        const sendSmsToNumber = (phoneNumber?: string) => {
+        const sendSmsToNumber = async (phoneNumber?: string) => {
             const to = phoneNumber.trim();
+
             if (!to) {
                 this.logger.error('Not a valid phone number to send SMS');
                 return;
             }
+
             this.logger.info(`Trying to send SMS to number ${phoneNumber}`);
-            return this.client.messages
-                .create({
+
+            try {
+                const message = await this.client.messages.create({
                     body,
                     to,
                     from: this.fromNumber
-                })
-                .then((message) => {
-                    const { errorCode, errorMessage, status } = message;
-                    if (errorCode) {
-                        this.logger.error(
-                            `There was an error sending SMS to number ${phoneNumber} (${errorCode} - ${errorMessage})`
-                        );
-                    } else {
-                        this.logger.info(
-                            `Sent SMS to number ${phoneNumber} successful (status ${status})`
-                        );
-                    }
-                    return message;
-                })
-                .catch((error) => {
-                    this.logger.error(
-                        `Could not send SMS to number '${phoneNumber}'`,
-                        error
-                    );
                 });
+
+                const { errorCode, errorMessage, status } = message;
+
+                if (errorCode) {
+                    this.logger.error(
+                        `There was an error sending SMS to number ${phoneNumber} (${errorCode} - ${errorMessage})`
+                    );
+                } else {
+                    this.logger.info(
+                        `Sent SMS to number ${phoneNumber} successful (status ${status})`
+                    );
+                }
+
+                return message;
+            } catch (error) {
+                this.logger.error(
+                    `Could not send SMS to number '${phoneNumber}'`,
+                    error
+                );
+            }
         };
 
         return Promise.all(recipients.map(sendSmsToNumber));
+    }
+
+    public async sendMultipleSms(messages: Message[]) {
+        return Promise.all(messages.map(this.sendSms));
     }
 }
