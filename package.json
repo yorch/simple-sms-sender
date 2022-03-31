@@ -14,14 +14,16 @@
     "url": "https://github.com/yorch/simple-sms-sender"
   },
   "scripts": {
-    "build": "yon lint && yon build-ts",
-    "build-ts": "tsc --declaration",
-    "watch-ts": "tsc -w",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "clean": "rimraf ./dist",
-    "test": "yon lint && jest --forceExit --detectOpenHandles --coverage --verbose",
-    "watch-test": "yon test --watchAll",
-    "prepublish": "yon test && yon build",
+    "build": "yon check && yon build:ts",
+    "build:ts": "tsc --declaration",
+    "build:watch": "tsc -w",
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose",
+    "test:watch": "yon test --watchAll",
+    "check": "tsc --noEmit",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "full": "yon lint && yon test && yon build",
+    "clean": "rimraf ./coverage ./dist",
+    "prepublishOnly": "yon full",
     "prepare": "husky install"
   },
   "private": false,
@@ -51,7 +53,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --fix"
+      "eslint --cache --fix"
     ]
   },
   "engines": {
