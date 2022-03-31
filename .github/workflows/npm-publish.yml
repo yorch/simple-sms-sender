@@ -15,7 +15,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: yarn install --frozen-lockfile # Runs also lint and test
+      - run: yarn install --frozen-lockfile
+      - run: yarn full
 
   publish-npm:
     needs: build
@@ -26,7 +27,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile # Runs also lint and test
+      - run: yarn install --frozen-lockfile
+      # Runs lint, check, test and build with `prepublishOnly` script
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
