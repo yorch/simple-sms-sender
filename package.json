@@ -26,7 +26,6 @@
     "prepublishOnly": "yon full",
     "prepare": "husky install"
   },
-  "private": false,
   "files": [
     "dist"
   ],
@@ -66,5 +65,6 @@
   "keywords": [
     "sms",
     "twilio"
-  ]
+  ],
+  "packageManager": "yarn@3.3.0"
 }
