@@ -4680,7 +4680,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:3.0.2, rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
+"rimraf@npm:4.1.0":
+  version: 4.1.0
+  resolution: "rimraf@npm:4.1.0"
+  bin:
+    rimraf: dist/cjs/src/bin.js
+  checksum: da4849802779a8c8cbe3aa1fbdf817b1ec41f7e95fb82074de3129e0030cd4e6e1f512a732344f0062c1cea59569c8113c78c3f50267cc469e8e9bfbe7622cb5
+  languageName: node
+  linkType: hard
+
+"rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
   dependencies:
@@ -4847,7 +4856,7 @@ __metadata:
     jest: 27.5.1
     lint-staged: 13.1.0
     prettier: 2.8.1
-    rimraf: 3.0.2
+    rimraf: 4.1.0
     ts-jest: 27.1.5
     ts-node: 10.9.1
     twilio: ^3.83.3
