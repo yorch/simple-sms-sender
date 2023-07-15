@@ -1872,10 +1872,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.8.29":
-  version: 1.11.6
-  resolution: "dayjs@npm:1.11.6"
-  checksum: 18bdfd927009b68eab08dca578e421d4a581cefcbe9337f54c5d9e0d941ffb6b221c4b2c1cab15cdd9d419940e768ac4c984531461a90bbe1c158b75fe160580
+"dayjs@npm:^1.11.9":
+  version: 1.11.9
+  resolution: "dayjs@npm:1.11.9"
+  checksum: a4844d83dc87f921348bb9b1b93af851c51e6f71fa259604809cfe1b49d1230e6b0212dab44d1cb01994c096ad3a77ea1cf18fa55154da6efcc9d3610526ac38
   languageName: node
   linkType: hard
 
@@ -5313,18 +5313,18 @@ __metadata:
   linkType: hard
 
 "twilio@npm:^4.7.2":
-  version: 4.10.0
-  resolution: "twilio@npm:4.10.0"
+  version: 4.14.0
+  resolution: "twilio@npm:4.14.0"
   dependencies:
     axios: ^0.26.1
-    dayjs: ^1.8.29
+    dayjs: ^1.11.9
     https-proxy-agent: ^5.0.0
     jsonwebtoken: ^9.0.0
     qs: ^6.9.4
     scmp: ^2.1.0
     url-parse: ^1.5.9
     xmlbuilder: ^13.0.2
-  checksum: 345f9da049cb5ea08922da04afd5eaadcbc30c9584c525e1b420f3daffaf0aad1b829e366e82104ef1af853c219ed5c802f35e2ee6fc06eb5a6f4c2e3ee57b43
+  checksum: 23d68989e78923913a66512f3a675ef984b9aa5846c34c765d3f6f9ac165834143e38fe6312f20d2cc427502934df4c7aef46b205fb8c577f71461f561e8f222
   languageName: node
   linkType: hard
 
