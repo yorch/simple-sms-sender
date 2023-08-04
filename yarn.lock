@@ -1018,10 +1018,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.16.2":
-  version: 18.16.2
-  resolution: "@types/node@npm:18.16.2"
-  checksum: 7ad66d23b3b93885a9f879bff98e0196790ad35589b47a3d81b52db969ad17ee298082020296df5166c2d72d3cd6a4b9ab34d254483637d967944a4b3e6febdb
+"@types/node@npm:20.4.7":
+  version: 20.4.7
+  resolution: "@types/node@npm:20.4.7"
+  checksum: a40d7003f66b56220a2028179e49f950b46fa6dbf860a4a6ecbd6ba7976f05b2f0b31ced39689ec88a7d9e32d07e088c6a06d270b99d5bc13a28291ac2f30ca7
   languageName: node
   linkType: hard
 
@@ -5067,7 +5067,7 @@ __metadata:
   resolution: "simple-sms-sender@workspace:."
   dependencies:
     "@types/jest": 27.5.2
-    "@types/node": 18.16.2
+    "@types/node": 20.4.7
     "@typescript-eslint/eslint-plugin": 6.2.1
     "@typescript-eslint/parser": 6.2.1
     eslint: 8.46.0
