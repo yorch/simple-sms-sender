@@ -7,11 +7,13 @@ root = true
 [*]
 end_of_line = lf
 insert_final_newline = true
+indent_style = space
+indent_size = 2
 
-[*.js]
+[{*.js,*.ts,*.cjs}]
 charset = utf-8
 indent_style = space
-indent_size = 4
+indent_size = 2
 
 [{*.json,*.yml}]
 indent_style = space
