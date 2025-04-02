@@ -10,21 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - uses: googleapis/release-please-action@v4
         id: release
         with:
           release-type: node
-          package-name: release-please-action
 
       # Due to Github Actions design, releases created by this action won't trigger
       # new Actions like `npm-publish.ym`, so we have to handle the npm publication here.
       # More info:
       # https://github.com/google-github-actions/release-please-action/issues/402
       # https://github.com/googleapis/release-please/issues/1142
-      - uses: actions/checkout@v4
-        # These if statements ensure that a publication only occurs when
-        # a new release is created:
+      - name: Checkout code
         if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         if: ${{ steps.release.outputs.release_created }}
