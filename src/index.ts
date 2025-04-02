@@ -1,1 +1,1 @@
-export { SmsSender } from './SmsSender';
+export { SmsSender } from './SmsSender.js';

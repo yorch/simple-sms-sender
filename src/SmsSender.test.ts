@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
 
-import { SmsSender } from '../src/SmsSender';
+import { SmsSender } from './SmsSender.js';
 
 vi.mock('twilio', () => ({
     default: vi.fn(() => ({
@@ -55,7 +55,7 @@ describe('SmsSender', () => {
         const smsSender = new SmsSender({ ...commonConfig });
         await expect(
             smsSender.sendSms({
-                body: undefined,
+                body: '',
                 recipients: ['+19991112223333']
             })
         ).rejects.toThrowError('No body to send SMS');
@@ -66,7 +66,7 @@ describe('SmsSender', () => {
         await expect(
             smsSender.sendSms({
                 body: 'Test',
-                recipients: undefined
+                recipients: []
             })
         ).rejects.toThrowError('No recipients to send SMS');
         await expect(

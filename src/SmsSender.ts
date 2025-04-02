@@ -1,6 +1,5 @@
-import twilio from 'twilio';
-import type Twilio from 'twilio/lib/rest/Twilio';
-import type { GenericLogger, Message } from './types';
+import twilio, { type Twilio } from 'twilio';
+import type { GenericLogger, Message } from './types.js';
 
 export class SmsSender {
     private accountSid: string;
@@ -47,7 +46,7 @@ export class SmsSender {
         }
 
         const sendSmsToNumber = async (phoneNumber?: string) => {
-            const to = phoneNumber.trim();
+            const to = phoneNumber?.trim();
 
             if (!to) {
                 this.logger.error('Not a valid phone number to send SMS');
@@ -82,6 +81,8 @@ export class SmsSender {
                     error
                 );
             }
+
+            return;
         };
 
         return Promise.all(recipients.map(sendSmsToNumber));

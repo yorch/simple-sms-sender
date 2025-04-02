@@ -2,7 +2,10 @@
   "name": "simple-sms-sender",
   "version": "0.1.1",
   "description": "Simple SMS sender to multiple recipients using Twilio",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "author": "Jorge Barnaby <jorge.barnaby@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/yorch/simple-sms-sender#readme",
@@ -14,9 +17,7 @@
     "url": "https://github.com/yorch/simple-sms-sender"
   },
   "scripts": {
-    "build": "run check && run build:ts",
-    "build:ts": "tsc --declaration",
-    "build:watch": "tsc -w",
+    "build": "run check && tsup",
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -36,6 +37,9 @@
     "twilio": "^4.23.0"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "7.52.2",
+    "@tsconfig/node-lts": "22.0.1",
+    "@tsconfig/strictest": "2.0.5",
     "@types/node": "20.17.30",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
@@ -47,7 +51,7 @@
     "lint-staged": "15.5.0",
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
-    "ts-node": "10.9.2",
+    "tsup": "8.4.0",
     "typescript": "5.8.2",
     "vitest": "3.1.1",
     "yarn-or-npm": "3.0.1"
