@@ -1,23 +1,27 @@
+import { describe, expect, test, vi } from 'vitest';
+
 import { SmsSender } from '../src/SmsSender';
 
-jest.mock('twilio', () => () => ({
-    messages: {
-        create: jest.fn(
-            ({ to }) =>
-                new Promise((resolve, reject) => {
-                    if (!to) {
-                        reject('No number');
-                        return;
-                    }
-                    resolve({ status: 'yey' });
-                })
-        )
-    }
+vi.mock('twilio', () => ({
+    default: vi.fn(() => ({
+        messages: {
+            create: vi.fn(
+                ({ to }) =>
+                    new Promise((resolve, reject) => {
+                        if (!to) {
+                            reject('No number');
+                            return;
+                        }
+                        resolve({ status: 'yey' });
+                    })
+            )
+        }
+    }))
 }));
 
 describe('SmsSender', () => {
-    const logError = jest.fn();
-    const logInfo = jest.fn();
+    const logError = vi.fn();
+    const logInfo = vi.fn();
     const commonConfig = {
         accountSid: '1234',
         fromNumber: '+12223334444',
@@ -30,7 +34,7 @@ describe('SmsSender', () => {
     };
 
     test('should work', async () => {
-        const smsSender = new SmsSender(commonConfig);
+        const smsSender = new SmsSender({ ...commonConfig });
         await smsSender.sendSms({
             body: 'Test',
             recipients: ['', '+19991112223333']
@@ -48,7 +52,7 @@ describe('SmsSender', () => {
     });
 
     test('should throw if no body is provided', async () => {
-        const smsSender = new SmsSender(commonConfig);
+        const smsSender = new SmsSender({ ...commonConfig });
         await expect(
             smsSender.sendSms({
                 body: undefined,
@@ -58,7 +62,7 @@ describe('SmsSender', () => {
     });
 
     test('should throw if no recipients are provided', async () => {
-        const smsSender = new SmsSender(commonConfig);
+        const smsSender = new SmsSender({ ...commonConfig });
         await expect(
             smsSender.sendSms({
                 body: 'Test',

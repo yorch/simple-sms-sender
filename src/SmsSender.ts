@@ -1,6 +1,6 @@
 import twilio from 'twilio';
-import Twilio from 'twilio/lib/rest/Twilio';
-import { GenericLogger, Message } from './types';
+import type Twilio from 'twilio/lib/rest/Twilio';
+import type { GenericLogger, Message } from './types';
 
 export class SmsSender {
     private accountSid: string;

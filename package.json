@@ -14,14 +14,15 @@
     "url": "https://github.com/yorch/simple-sms-sender"
   },
   "scripts": {
-    "build": "yon check && yon build:ts",
+    "build": "run check && run build:ts",
     "build:ts": "tsc --declaration",
     "build:watch": "tsc -w",
-    "test": "jest --forceExit --detectOpenHandles --coverage --verbose",
-    "test:watch": "yon test --watchAll",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "check": "tsc --noEmit",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "full": "yon lint && yon test && yon build",
+    "full": "run lint && run test:coverage && run build",
     "clean": "rimraf ./coverage ./dist",
     "prepublishOnly": "yon full",
     "postinstall": "husky",
@@ -35,21 +36,20 @@
     "twilio": "^4.23.0"
   },
   "devDependencies": {
-    "@types/jest": "27.5.2",
     "@types/node": "20.17.30",
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
+    "@vitest/coverage-v8": "3.1.1",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.5",
     "husky": "9.1.7",
-    "jest": "29.7.0",
     "lint-staged": "15.5.0",
     "prettier": "3.5.3",
     "rimraf": "6.0.1",
-    "ts-jest": "29.3.1",
     "ts-node": "10.9.2",
     "typescript": "5.8.2",
+    "vitest": "3.1.1",
     "yarn-or-npm": "3.0.1"
   },
   "lint-staged": {
