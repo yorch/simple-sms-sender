@@ -30,23 +30,23 @@
     "dist"
   ],
   "dependencies": {
-    "twilio": "^4.7.2"
+    "twilio": "^4.23.0"
   },
   "devDependencies": {
     "@types/jest": "27.5.2",
-    "@types/node": "20.12.7",
-    "@typescript-eslint/eslint-plugin": "6.7.3",
-    "@typescript-eslint/parser": "6.7.4",
-    "eslint": "8.46.0",
-    "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-prettier": "5.0.0",
+    "@types/node": "20.17.30",
+    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/parser": "6.21.0",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.5",
     "husky": "8.0.3",
     "jest": "27.5.1",
-    "lint-staged": "13.2.3",
-    "prettier": "3.0.1",
-    "rimraf": "5.0.5",
+    "lint-staged": "13.3.0",
+    "prettier": "3.5.3",
+    "rimraf": "6.0.1",
     "ts-jest": "27.1.5",
-    "ts-node": "10.9.1",
+    "ts-node": "10.9.2",
     "typescript": "4.9.5",
     "yarn-or-npm": "3.0.1"
   },
