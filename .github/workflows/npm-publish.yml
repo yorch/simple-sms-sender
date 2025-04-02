@@ -5,29 +5,46 @@ name: Node.js Package
 
 on:
   release:
-    types: [created]
+    types:
+      - created
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - run: yarn install --frozen-lockfile
-      - run: yarn full
+          node-version: 22
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run tests, lint and build
+        run: yarn full
 
   publish-npm:
     needs: build
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
       # Runs lint, check, test and build with `prepublishOnly` script
       - run: npm publish
         env:
