@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/yorch/simple-sms-sender/compare/v0.2.0...v0.2.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* Fix exporting missing types ([b49a455](https://github.com/yorch/simple-sms-sender/commit/b49a45560d9a3a84f303256e603e49905c414a9e))
+
 ## [0.2.0](https://github.com/yorch/simple-sms-sender/compare/v0.1.1...v0.2.0) (2025-04-02)
 
 
