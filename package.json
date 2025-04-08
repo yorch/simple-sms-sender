@@ -34,7 +34,7 @@
     "dist"
   ],
   "dependencies": {
-    "twilio": "^4.23.0"
+    "twilio": "^5.5.2"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "7.52.2",
