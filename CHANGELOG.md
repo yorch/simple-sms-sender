@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/yorch/simple-sms-sender/compare/v0.3.0...v0.3.1) (2025-06-29)
+
+
+### Miscellaneous Chores
+
+* release 0.3.1 ([5fbade8](https://github.com/yorch/simple-sms-sender/commit/5fbade84d76b4ac193aadda3c6b35d615bc9f71d))
+
 ## [0.3.0](https://github.com/yorch/simple-sms-sender/compare/v0.2.1...v0.3.0) (2025-06-29)
 
 
