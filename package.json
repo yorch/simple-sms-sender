@@ -17,13 +17,13 @@
     "url": "https://github.com/yorch/simple-sms-sender"
   },
   "scripts": {
-    "build": "run check && tsup",
+    "build": "npm run check && tsup",
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "check": "tsc --noEmit",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "full": "run lint && run test:coverage && run build",
+    "full": "npm run lint && npm run test:coverage && npm run build",
     "clean": "rimraf ./coverage ./dist",
     "prepublishOnly": "yon full",
     "postinstall": "husky",
