@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/yorch/simple-sms-sender/compare/v0.3.1...v0.4.0) (2025-06-29)
+
+
+### Features
+
+* Add message scheduling feature to SmsSender with validation ([5fec7d8](https://github.com/yorch/simple-sms-sender/commit/5fec7d8cd617c1622cf36a099976ed64c5b91fc7))
+
+
+### Miscellaneous Chores
+
+* release 0.4.0 ([0bb14b5](https://github.com/yorch/simple-sms-sender/commit/0bb14b58b80b97f1c55fc654f47ce32e0472ba0a))
+
 ## [0.3.1](https://github.com/yorch/simple-sms-sender/compare/v0.3.0...v0.3.1) (2025-06-29)
 
 
