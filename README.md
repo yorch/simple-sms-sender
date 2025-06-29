@@ -161,6 +161,20 @@ To run tests:
 yarn test
 ```
 
+## Release Management
+
+Release versions follow [Semantic Versioning](https://semver.org/).
+
+To release a new version, ensure all tests pass and lint the code, then, make and push an empty commit like:
+
+```sh
+git commit --allow-empty -m "chore: release {release}" -m "Release-As: {release}"
+# For example:
+git commit --allow-empty -m "chore: release 0.3.0" -m "Release-As: 0.3.0"
+```
+
+Release Please will automatically detect the commit message and create a new release based on the `Release-As` tag.
+
 ## Code Style & Linting
 
 See [CODE_STYLE.md](./CODE_STYLE.md) for code style guidelines.
