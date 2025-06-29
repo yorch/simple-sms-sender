@@ -2,13 +2,11 @@
 
 ## [0.2.1](https://github.com/yorch/simple-sms-sender/compare/v0.2.0...v0.2.1) (2025-04-02)
 
-
 ### Bug Fixes
 
 * Fix exporting missing types ([b49a455](https://github.com/yorch/simple-sms-sender/commit/b49a45560d9a3a84f303256e603e49905c414a9e))
 
 ## [0.2.0](https://github.com/yorch/simple-sms-sender/compare/v0.1.1...v0.2.0) (2025-04-02)
-
 
 ### Features
 
@@ -16,13 +14,11 @@
 
 ### [0.1.1](https://github.com/yorch/simple-sms-sender/compare/v0.1.0...v0.1.1) (2022-03-31)
 
-
 ### Bug Fixes
 
 * Fix automatic release with release-please bot ([#486](https://github.com/yorch/simple-sms-sender/issues/486)) ([275fbc7](https://github.com/yorch/simple-sms-sender/commit/275fbc769f4836411881000c4e77d742ff051ad4))
 
 ## [0.1.0](https://github.com/yorch/simple-sms-sender/compare/v0.0.5...v0.1.0) (2022-03-31)
-
 
 ### Features
 

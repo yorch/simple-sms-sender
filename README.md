@@ -24,11 +24,11 @@ npm install --save simple-sms-sender
 import { SmsSender } from 'simple-sms-sender';
 
 const sender = new SmsSender({
-    accountId: '', // string
-    fromNumber: '', // string
-    logger, // Logger instance, optional, defaults to console.log and console.error
-    secret: '', // string
-    sid: '' // string
+    accountSid: '', // string, required
+    fromNumber: '', // string, required
+    logger, // Logger instance, optional, defaults to console
+    secret: '', // string, required
+    sid: '' // string, required
 });
 
 // Returns a promise
@@ -53,7 +53,7 @@ const logger = pino();
 
 const config = {
     accountSid: '{Your Twilio Account SID}',
-    fromNumber: '{Phone number to send }',
+    fromNumber: '{Phone number to send}',
     secret: '{Your Twilio Secret}',
     sid: '{Your Twilio SID}'
 };
@@ -64,7 +64,7 @@ const createSender = () => {
     return new SmsSender({
         accountSid,
         fromNumber,
-        logger,
+        logger, // optional
         secret,
         sid
     });
@@ -78,8 +78,68 @@ smsSender.sendMultipleSms([
         recipients: ['+19999999999', '+18888888888']
     },
     {
-        body: 'Some other message message',
+        body: 'Some other message',
         recipients: ['+19999999999']
     }
 ]);
 ```
+
+## API
+
+### `SmsSender` constructor
+
+| Parameter  | Type          | Required | Description                          |
+| ---------- | ------------- | -------- | ------------------------------------ |
+| accountSid | string        | Yes      | Twilio Account SID                   |
+| fromNumber | string        | Yes      | Phone number to send from            |
+| logger     | GenericLogger | No       | Logger instance, defaults to console |
+| secret     | string        | Yes      | Twilio Auth Token (Secret)           |
+| sid        | string        | Yes      | Twilio SID                           |
+
+### Methods
+
+#### `sendSms({ body, recipients })`
+
+- `body`: string (required) — Message text
+- `recipients`: string[] (required) — List of phone numbers
+- Returns: `Promise<any[]>`
+
+#### `sendMultipleSms(messages)`
+
+- `messages`: Array<{ body: string, recipients: string[] }>
+- Returns: `Promise<any[]>`
+
+## Logger
+
+- The `logger` parameter is optional. If not provided, logs will use `console.log` and `console.error`.
+- Logger must implement `{ info: (...args) => void, error: (...args) => void }`.
+
+## Testing
+
+To run tests:
+
+```sh
+yarn test
+```
+
+## Code Style & Linting
+
+See [CODE_STYLE.md](./CODE_STYLE.md) for code style guidelines.
+
+To lint the code:
+
+```sh
+yarn lint
+```
+
+## Security
+
+See [SECURITY.md](./SECURITY.md) for security policy and how to report vulnerabilities.
+
+## Contributing
+
+Contributions are welcome! Please open issues or pull requests.
+
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for release history.
