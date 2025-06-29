@@ -1,14 +1,36 @@
 import twilio, { type Twilio } from 'twilio';
 import type { GenericLogger, Message } from './types.js';
 
+/**
+ * Represents a service for sending SMS messages using Twilio.
+ */
 export class SmsSender {
+  /** Twilio Account SID */
   private accountSid: string;
+
+  /** Twilio client instance */
   private client: Twilio;
+
+  /** Sender's phone number */
   private fromNumber: string;
+
+  /** Logger for logging messages and errors */
   private logger: GenericLogger;
+
+  /** Twilio SID */
   private sid: string;
+
+  /** Twilio secret */
   private secret: string;
 
+  /**
+   * Creates an instance of SmsSender.
+   * @param accountSid - Twilio Account SID.
+   * @param fromNumber - Sender's phone number.
+   * @param logger - Logger for logging messages and errors.
+   * @param sid - Twilio SID.
+   * @param secret - Twilio secret.
+   */
   constructor({
     accountSid,
     fromNumber,
@@ -36,6 +58,13 @@ export class SmsSender {
     });
   }
 
+  /**
+   * Sends an SMS message to a list of recipients.
+   * @param body - The content of the SMS message.
+   * @param recipients - Array of recipient phone numbers.
+   * @throws Will throw an error if the body or recipients are empty.
+   * @returns A promise that resolves to an array of sent message objects.
+   */
   public async sendSms({ body, recipients }: Message) {
     if (!body || body.length === 0) {
       throw new Error('No body to send SMS');
@@ -88,6 +117,11 @@ export class SmsSender {
     return Promise.all(recipients.map(sendSmsToNumber));
   }
 
+  /**
+   * Sends multiple SMS messages.
+   * @param messages - Array of messages to send.
+   * @returns A promise that resolves to an array of sent message objects.
+   */
   public async sendMultipleSms(messages: Message[]) {
     return Promise.all(messages.map(this.sendSms));
   }
