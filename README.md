@@ -84,6 +84,21 @@ smsSender.sendMultipleSms([
 ]);
 ```
 
+## Features
+
+- Integration with Twilio API for SMS sending.
+- Batch SMS sending to multiple recipients.
+- Customizable logging with support for external logger instances.
+- TypeScript support for type safety.
+
+## Prerequisites
+
+Before using this library, ensure you have:
+
+- A Twilio account.
+- Twilio Account SID, Auth Token (Secret), and SID.
+- A phone number registered with Twilio for sending SMS.
+
 ## API
 
 ### `SmsSender` constructor
@@ -113,6 +128,30 @@ smsSender.sendMultipleSms([
 
 - The `logger` parameter is optional. If not provided, logs will use `console.log` and `console.error`.
 - Logger must implement `{ info: (...args) => void, error: (...args) => void }`.
+
+## Error Handling
+
+### Example
+
+```js
+smsSender.sendSms({
+    body: 'Hello!',
+    recipients: ['+19999999999']
+}).catch(error => {
+    console.error('Failed to send SMS:', error);
+});
+
+smsSender.sendMultipleSms([
+    { body: 'Message 1', recipients: ['+19999999999'] },
+    { body: 'Message 2', recipients: ['+18888888888'] }
+]).catch(error => {
+    console.error('Failed to send multiple SMS:', error);
+});
+```
+
+## Additional Resources
+
+- [Twilio Documentation](https://www.twilio.com/docs) for more details on Twilio API.
 
 ## Testing
 
