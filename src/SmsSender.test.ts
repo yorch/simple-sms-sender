@@ -76,4 +76,99 @@ describe('SmsSender', () => {
       })
     ).rejects.toThrowError('No recipients to send SMS');
   });
+
+  describe('Message Scheduling', () => {
+    test('should send scheduled SMS with valid future time', async () => {
+      logError.mockClear();
+      logInfo.mockClear();
+      const futureTime = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
+      const smsSender = new SmsSender({ ...commonConfig });
+
+      await smsSender.sendSms({
+        body: 'Scheduled test message',
+        recipients: ['+19991112223333'],
+        scheduledTime: futureTime.toISOString()
+      });
+
+      expect(logInfo).toHaveBeenCalledWith(
+        'Trying to send SMS to number +19991112223333'
+      );
+    });
+
+    test('should throw error for invalid scheduledTime format', async () => {
+      const smsSender = new SmsSender({ ...commonConfig });
+
+      await expect(
+        smsSender.sendSms({
+          body: 'Test',
+          recipients: ['+19991112223333'],
+          scheduledTime: 'invalid-date'
+        })
+      ).rejects.toThrowError('Invalid scheduledTime: Invalid date format');
+    });
+
+    test('should throw error for scheduledTime in the past', async () => {
+      const pastTime = new Date(Date.now() - 60 * 60 * 1000); // 1 hour ago
+      const smsSender = new SmsSender({ ...commonConfig });
+
+      await expect(
+        smsSender.sendSms({
+          body: 'Test',
+          recipients: ['+19991112223333'],
+          scheduledTime: pastTime.toISOString()
+        })
+      ).rejects.toThrowError(
+        'Invalid scheduledTime: Scheduled time must be in the future'
+      );
+    });
+
+    test('should throw error for scheduledTime more than 7 days in future', async () => {
+      const tooFarFuture = new Date(Date.now() + 8 * 24 * 60 * 60 * 1000); // 8 days from now
+      const smsSender = new SmsSender({ ...commonConfig });
+
+      await expect(
+        smsSender.sendSms({
+          body: 'Test',
+          recipients: ['+19991112223333'],
+          scheduledTime: tooFarFuture.toISOString()
+        })
+      ).rejects.toThrowError(
+        'Invalid scheduledTime: Scheduled time cannot be more than 7 days in the future'
+      );
+    });
+
+    test('should work without scheduledTime (immediate sending)', async () => {
+      const smsSender = new SmsSender({ ...commonConfig });
+
+      await smsSender.sendSms({
+        body: 'Immediate test message',
+        recipients: ['+19991112223333']
+      });
+
+      expect(logInfo).toHaveBeenCalledWith(
+        'Trying to send SMS to number +19991112223333'
+      );
+    });
+
+    test('should handle scheduled messages in sendMultipleSms', async () => {
+      logError.mockClear();
+      logInfo.mockClear();
+      const futureTime = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
+      const smsSender = new SmsSender({ ...commonConfig });
+
+      await smsSender.sendMultipleSms([
+        {
+          body: 'Immediate message',
+          recipients: ['+19991112223333']
+        },
+        {
+          body: 'Scheduled message',
+          recipients: ['+19991112223333'],
+          scheduledTime: futureTime.toISOString()
+        }
+      ]);
+
+      expect(logInfo).toHaveBeenCalledTimes(4); // 2 attempts + 2 successes
+    });
+  });
 });

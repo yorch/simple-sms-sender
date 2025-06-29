@@ -52,7 +52,9 @@ This is a TypeScript library for sending SMS messages via Twilio. The codebase i
 - **Constructor injection**: SmsSender accepts Twilio credentials and optional logger
 - **Promise-based API**: All SMS operations return promises for async handling
 - **Batch operations**: Supports sending single SMS or multiple SMS messages
+- **Message scheduling**: Schedule SMS delivery up to 7 days in advance using ISO 8601 timestamps
 - **Error handling**: Graceful handling of invalid phone numbers and Twilio API errors
+- **Input validation**: Validates message content, recipients, and scheduled time formats
 - **Logging abstraction**: Uses `GenericLogger` interface (defaults to console if not provided)
 
 ### Twilio Integration

@@ -1,6 +1,7 @@
 export type Message = {
   body: string;
   recipients: string[];
+  scheduledTime?: string;
 };
 
 export type GenericLogger = {

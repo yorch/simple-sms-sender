@@ -34,12 +34,13 @@ const sender = new SmsSender({
 // Returns a promise
 sender.sendSms({
     body: '', // string
-    recipients: [] // array of strings
+    recipients: [], // array of strings
+    scheduledTime: '' // optional ISO 8601 date string
 });
 
 sender.sendMultipleSms([
     { body: '', recipients: [] },
-    { body: '', recipients: [] }
+    { body: '', recipients: [], scheduledTime: '' }
 ]);
 ```
 
@@ -80,6 +81,11 @@ smsSender.sendMultipleSms([
     {
         body: 'Some other message',
         recipients: ['+19999999999']
+    },
+    {
+        body: 'Scheduled message',
+        recipients: ['+19999999999'],
+        scheduledTime: '2024-12-25T10:00:00Z' // Send on Christmas at 10 AM UTC
     }
 ]);
 ```
@@ -88,6 +94,7 @@ smsSender.sendMultipleSms([
 
 - Integration with Twilio API for SMS sending.
 - Batch SMS sending to multiple recipients.
+- **Message scheduling** - Schedule SMS messages up to 7 days in advance.
 - Customizable logging with support for external logger instances.
 - TypeScript support for type safety.
 
@@ -113,16 +120,44 @@ Before using this library, ensure you have:
 
 ### Methods
 
-#### `sendSms({ body, recipients })`
+#### `sendSms({ body, recipients, scheduledTime })`
 
 - `body`: string (required) — Message text
 - `recipients`: string[] (required) — List of phone numbers
+- `scheduledTime`: string (optional) — ISO 8601 formatted date/time to schedule message delivery (up to 7 days in advance)
 - Returns: `Promise<any[]>`
 
 #### `sendMultipleSms(messages)`
 
-- `messages`: Array<{ body: string, recipients: string[] }>
+- `messages`: Array<{ body: string, recipients: string[], scheduledTime?: string }>
 - Returns: `Promise<any[]>`
+
+## Message Scheduling
+
+You can schedule SMS messages to be sent at a future time using the `scheduledTime` parameter:
+
+```js
+// Schedule a message for 1 hour from now
+const futureTime = new Date(Date.now() + 60 * 60 * 1000);
+smsSender.sendSms({
+    body: 'This message will be sent in 1 hour',
+    recipients: ['+19999999999'],
+    scheduledTime: futureTime.toISOString()
+});
+
+// Schedule a message for a specific date/time
+smsSender.sendSms({
+    body: 'Happy New Year!',
+    recipients: ['+19999999999'],
+    scheduledTime: '2024-01-01T00:00:00Z'
+});
+```
+
+**Scheduling Rules:**
+- Time must be in ISO 8601 format (e.g., `2024-01-01T12:00:00Z`)
+- Time must be in the future
+- Maximum scheduling window is 7 days in advance
+- Invalid formats or times will throw validation errors
 
 ## Logger
 

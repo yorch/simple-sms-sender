@@ -62,16 +62,21 @@ export class SmsSender {
    * Sends an SMS message to a list of recipients.
    * @param body - The content of the SMS message.
    * @param recipients - Array of recipient phone numbers.
+   * @param scheduledTime - Optional ISO 8601 formatted date/time to schedule the message.
    * @throws Will throw an error if the body or recipients are empty.
    * @returns A promise that resolves to an array of sent message objects.
    */
-  public async sendSms({ body, recipients }: Message) {
+  public async sendSms({ body, recipients, scheduledTime }: Message) {
     if (!body || body.length === 0) {
       throw new Error('No body to send SMS');
     }
 
     if (!recipients || recipients.length === 0) {
       throw new Error('No recipients to send SMS');
+    }
+
+    if (scheduledTime) {
+      this.validateScheduledTime(scheduledTime);
     }
 
     const sendSmsToNumber = async (phoneNumber?: string) => {
@@ -88,7 +93,8 @@ export class SmsSender {
         const message = await this.client.messages.create({
           body,
           to,
-          from: this.fromNumber
+          from: this.fromNumber,
+          ...(scheduledTime && { sendAt: new Date(scheduledTime) })
         });
 
         const { errorCode, errorMessage, status } = message;
@@ -123,6 +129,41 @@ export class SmsSender {
    * @returns A promise that resolves to an array of sent message objects.
    */
   public async sendMultipleSms(messages: Message[]) {
-    return Promise.all(messages.map(this.sendSms));
+    return Promise.all(messages.map((message) => this.sendSms(message)));
+  }
+
+  /**
+   * Validates the scheduled time format and ensures it's in the future.
+   * @param scheduledTime - ISO 8601 formatted date/time string.
+   * @throws Will throw an error if the format is invalid or time is in the past.
+   */
+  private validateScheduledTime(scheduledTime: string): void {
+    try {
+      const scheduledDate = new Date(scheduledTime);
+
+      if (isNaN(scheduledDate.getTime())) {
+        throw new Error('Invalid date format');
+      }
+
+      const now = new Date();
+      if (scheduledDate <= now) {
+        throw new Error('Scheduled time must be in the future');
+      }
+
+      // Twilio allows scheduling up to 7 days in advance
+      const maxFutureDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+      if (scheduledDate > maxFutureDate) {
+        throw new Error(
+          'Scheduled time cannot be more than 7 days in the future'
+        );
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(`Invalid scheduledTime: ${error.message}`);
+      }
+      throw new Error(
+        'Invalid scheduledTime format. Please use ISO 8601 format (e.g., 2024-01-01T12:00:00Z)'
+      );
+    }
   }
 }
