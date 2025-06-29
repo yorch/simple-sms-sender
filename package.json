@@ -26,7 +26,7 @@
     "lint:fix": "run lint --fix",
     "full": "run lint && run test:coverage && run build",
     "clean": "rimraf ./coverage ./dist",
-    "prepublishOnly": "run full",
+    "prepublishOnly": "yon full",
     "postinstall": "husky",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
@@ -55,7 +55,8 @@
     "rimraf": "6.0.1",
     "tsup": "8.5.0",
     "typescript": "5.8.3",
-    "vitest": "3.2.4"
+    "vitest": "3.2.4",
+    "yarn-or-npm": "3.0.1"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
