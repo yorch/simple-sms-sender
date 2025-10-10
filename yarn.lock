@@ -818,12 +818,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.19.2":
-  version: 20.19.2
-  resolution: "@types/node@npm:20.19.2"
+"@types/node@npm:24.7.1":
+  version: 24.7.1
+  resolution: "@types/node@npm:24.7.1"
   dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10/c9ee1f7eadd32d88d8bd47ff8e98cbabba3086267c49af62895bcf7347b97892daff52865f3068c358cec8ebd5b19bdc15d075039a226e145787cfe4a513dc4c
+    undici-types: "npm:~7.14.0"
+  checksum: 10/b1796fa90ab360d6ca5a85457a3b6a70ac53ba75e29e36f1bae1b22d4fd5883277a2ee08475d24c29061474207b132a82d7490180e2c508ee8b081179923dd55
   languageName: node
   linkType: hard
 
@@ -3893,7 +3893,7 @@ __metadata:
     "@microsoft/api-extractor": "npm:7.52.8"
     "@tsconfig/node-lts": "npm:22.0.2"
     "@tsconfig/strictest": "npm:2.0.5"
-    "@types/node": "npm:20.19.2"
+    "@types/node": "npm:24.7.1"
     "@typescript-eslint/eslint-plugin": "npm:8.35.0"
     "@typescript-eslint/parser": "npm:8.35.0"
     "@vitest/coverage-v8": "npm:3.2.4"
@@ -4391,10 +4391,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.21.0":
-  version: 6.21.0
-  resolution: "undici-types@npm:6.21.0"
-  checksum: 10/ec8f41aa4359d50f9b59fa61fe3efce3477cc681908c8f84354d8567bb3701fafdddf36ef6bff307024d3feb42c837cf6f670314ba37fc8145e219560e473d14
+"undici-types@npm:~7.14.0":
+  version: 7.14.0
+  resolution: "undici-types@npm:7.14.0"
+  checksum: 10/0f8709b21437697af35801e33bddbe9992e0cf1771959c41850b1946f63822b825e03ce99f44bf19e4f5c3ccc5166e0be59f541565c36ce86163dc2c5870bc62
   languageName: node
   linkType: hard
 
